@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christian Gauer | Desenvolvedor Full Stack</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #4ade80;
+            --dark: #0f172a;
+            --light: #f1f5f9;
+            --gray: #64748b;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        header {
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        nav a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--secondary);
+        }
+        
+        .hero {
+            padding: 6rem 0;
+            position: relative;
+        }
+        
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .hero-text h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+        
+        .highlight {
+            color: var(--secondary);
+        }
+        
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--gray);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            margin-left: 1rem;
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+        }
+        
+        .code-block {
+            background-color: rgba(15, 23, 42, 0.9);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+        
+        .code-dots {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        
+        .dot-red {
+            background-color: #ef4444;
+        }
+        
+        .dot-yellow {
+            background-color: #f59e0b;
+        }
+        
+        .dot-green {
+            background-color: #10b981;
+        }
+        
+        .code-title {
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+        
+        .code-content {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+            color: var(--light);
+            line-height: 1.7;
+        }
+        
+        .code-line {
+            display: flex;
+        }
+        
+        .code-line-number {
+            color: var(--gray);
+            width: 30px;
+            text-align: right;
+            padding-right: 1rem;
+        }
+        
+        .token-comment {
+            color: #6b7280;
+        }
+        
+        .token-keyword {
+            color: #8b5cf6;
+        }
+        
+        .token-string {
+            color: #10b981;
+        }
+        
+        .token-function {
+            color: #3b82f6;
+        }
+        
+        .token-variable {
+            color: #ec4899;
+        }
+        
+        .glow {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            opacity: 0.15;
+            filter: blur(80px);
+            z-index: -1;
+        }
+        
+        .glow-1 {
+            top: -100px;
+            right: -100px;
+        }
+        
+        .glow-2 {
+            bottom: -150px;
+            left: -100px;
+        }
+        
+        .skills {
+            padding: 6rem 0;
+            position: relative;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .skill-card {
+            background-color: rgba(15, 23, 42, 0.5);
+            border-radius: 8px;
+            padding: 2rem;
+            transition: all 0.3s;
+            border: 1px solid rgba(99, 102, 241, 0.1);
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.2);
+            border-color: rgba(99, 102, 241, 0.5);
+        }
+        
+        .skill-category {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+        
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .skill-tag {
+            background-color: rgba(37, 99, 235, 0.2);
+            color: var(--light);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .projects {
+            padding: 6rem 0;
+            position: relative;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+        
+        .project-card {
+            background-color: rgba(15, 23, 42, 0.5);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s;
+            border: 1px solid rgba(99, 102, 241, 0.1);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.2);
+            border-color: rgba(99, 102, 241, 0.5);
+        }
+        
+        .project-img {
+            width: 100%;
+            height: 200px;
+            background-color: rgba(37, 99, 235, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary);
+        }
+        
+        .project-content {
+            padding: 1.5rem;
+        }
+        
+        .project-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-desc {
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+        
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .experience {
+            padding: 6rem 0;
+            position: relative;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+        }
+        
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.1rem;
+            top: 0.5rem;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.3);
+        }
+        
+        .timeline-date {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background-color: rgba(37, 99, 235, 0.2);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-company {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .contact {
+            padding: 6rem 0;
+            position: relative;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: rgba(37, 99, 235, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--secondary);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--gray);
+        }
+        
+        .form-input, .form-textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border-radius: 5px;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            background-color: rgba(15, 23, 42, 0.5);
+            color: var(--light);
+            font-size: 1rem;
+        }
+        
+        .form-textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        footer {
+            padding: 2rem 0;
+            text-align: center;
+            color: var(--gray);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-grid, .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            
+            .code-block {
+                margin-top: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+    
+    <header>
+        <div class="container header-content">
+            <div class="logo">JS //</div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#skills">Habilidades</a></li>
+                    <li><a href="#projects">Projetos</a></li>
+                    <li><a href="#experience">Experiência</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section id="home" class="hero">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <h1>Olá! Eu sou<br /><span class="highlight">Christian Gauer</span></h1>
+                <p>Desenvolvedor Full Stack apaixonado por criar soluções inovadoras, com 5 anos de experiência em desenvolvimento de sistemas web e móveis.</p>
+                <a href="#contact" class="btn">Entre em Contato</a>
+                <a href="#projects" class="btn btn-outline">Ver Projetos</a>
+            </div>
+            
+            <div class="code-block">
+                <div class="code-header">
+                    <div class="code-dots">
+                        <div class="dot dot-red"></div>
+                        <div class="dot dot-yellow"></div>
+                        <div class="dot dot-green"></div>
+                    </div>
+                    <div class="code-title">joao.js</div>
+                </div>
+                <div class="code-content">
+                    <div class="code-line">
+                        <span class="code-line-number">1</span>
+                        <span class="token-keyword">const</span> <span class="token-variable">desenvolvedor</span> = {
+                    </div>
+                    <div class="code-line">
+                        <span class="code-line-number">2</span>
+                        <span>&nbsp;&nbsp;nome: </span><span class="token-string">'Christian Gauer'</span>,
+                    </div>
+                    <div class="code-line">
+                        <span class="code-line-number">3</span>
+                        <span>&nbsp;&nbsp;cargo: </span><span class="token-string">'Full Stack Developer'</span>,
+                    </div>
+                    <div class="code-line">
+                        <span class="code-line-number">4</span>
+                        <span>&nbsp;&nbsp;habilidades: [</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="code-line-number">5</span>
+                        <span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="token-string">'JavaScript'</span>, <span class="token-string">'TypeScript'</span>, <span class="token-string">'React'</span>,
+                    </div>
+                    <div class="code-line">
+                        <span class="code-line-number">6</span>
+                        <span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="token-string">'Node.js'</span>, <span class="token-string">'Express'</span>, <span class="token-string">'MongoDB'</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="code-line-number">7</span>
+                        <span>&nbsp;&nbsp;],</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="code-line-number">8</span>
+                        <span>&nbsp;&nbsp;experiencia: </span><span class="token-function">() => {</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="code-line-number">9</span>
+                        <span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="token-keyword">return</span> </span><span class="token-string">'5 anos desenvolvendo aplicações incríveis'</span>;
+                    </div>
+                    <div class="code-line">
+                        <span class="code-line-number">10</span>
+                        <span>&nbsp;&nbsp;},</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="code-line-number">11</span>
+                        <span>&nbsp;&nbsp;<span class="token-comment">// A procura de novos desafios...</span></span>
+                    </div>
+                    <div class="code-line">
+                        <span class="code-line-number">12</span>
+                        <span>};</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Minhas Habilidades</h2>
+            
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3 class="skill-category">Linguagens de Programação</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Java</span>
+                    </div>
+                </div>
+                
+                <div class="skill-card">
+                    <h3 class="skill-category">Frameworks</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Express</span>
+                        <span class="skill-tag">Django</span>
+                    </div>
+                </div>
+                
+                <div class="skill-card">
+                    <h3 class="skill-category">Banco de Dados</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                    </div>
+                </div>
+                
+                <div class="skill-card">
+                    <h3 class="skill-category">Ferramentas</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Kubernetes</span>
+                        <span class="skill-tag">Jenkins</span>
+                        <span class="skill-tag">Jira</span>
+                    </div>
+                </div>
+                
+                <div class="skill-card">
+                    <h3 class="skill-category">Metodologias Ágeis</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Scrum</span>
+                        <span class="skill-tag">Kanban</span>
+                    </div>
+                </div>
+                
+                <div class="skill-card">
+                    <h3 class="skill-category">Testes</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Jest</span>
+                        <span class="skill-tag">Mocha</span>
+                        <span class="skill-tag">Cypress</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Projetos Destacados</h2>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img">
+                        <i>&lt;/&gt;</i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Portfólio Pessoal</h3>
+                        <p class="project-desc">Desenvolvimento de um portfólio pessoal integrado com um backend para exibir meu trabalho e projetos de código aberto.</p>
+                        <div class="project-tech">
+                            <span class="skill-tag">React.js</span>
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">MongoDB</span>
+                        </div>
+                        <a href="#" class="btn">Ver Projeto</a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        <i>&lt;/&gt;</i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Aplicativo de Tarefas</h3>
+                        <p class="project-desc">Aplicativo móvel para gerenciamento de tarefas diárias com sincronização em tempo real.</p>
+                        <div class="project-tech">
+                            <span class="skill-tag">React Native</span>
+                            <span class="skill-tag">Firebase</span>
+                        </div>
+                        <a href="#" class="btn">Ver Projeto</a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        <i>&lt;/&gt;</i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">API de Gerenciamento</h3>
+                        <p class="project-desc">API RESTful para gerenciamento de recursos com autenticação JWT e documentação completa.</p>
+                        <div class="project-tech">
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">Express</span>
+                            <span class="skill-tag">MongoDB</span>
+                            <span class="skill-tag">JWT</span>
+                        </div>
+                        <a href="#" class="btn">Ver Projeto</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">Experiência Profissional</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">Março 2022 - Presente</div>
+                    <h3 class="timeline-title">Desenvolvedor Full Stack</h3>
+                    <div class="timeline-company">Empresa ABC - São Paulo, SP</div>
+                    <ul>
+                        <li>Desenvolvimento de aplicações web escaláveis utilizando tecnologias como Node.js, React, e MongoDB.</li>
+                        <li>Implementação de sistemas de autenticação e autorização com JWT e OAuth 2.0.</li>
+                        <li>Colaboração com equipes de UX/UI para aprimorar a experiência do usuário.</li>
+                        <li>Uso de práticas ágeis (Scrum) para entrega de funcionalidades em sprints de duas semanas.</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">Julho 2020 - Fevereiro 2022</div>
+                    <h3 class="timeline-title">Desenvolvedor de Software Júnior</h3>
+                    <div class="timeline-company">Empresa XYZ - São Paulo, SP</div>
+                    <ul>
+                        <li>Desenvolvimento e manutenção de APIs RESTful com Node.js e Express.</li>
+                        <li>Criação de interfaces dinâmicas com React.js e integração com bancos de dados relacionais (MySQL).</li>
+                        <li>Acompanhamento de testes automatizados e implementação de correções de bugs.</li>
+                        <li>Participação em reuniões semanais de planejamento e revisões de código.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="education" class="skills">
+        <div class="container">
+            <h2 class="section-title">Formação e Certificações</h2>
+            
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3 class="skill-category">Formação Acadêmica</h3>
+                    <p><strong>Bacharel em Ciência da Computação</strong></p>
+                    <p>Universidade XYZ, São Paulo - SP</p>
+                    <p>Conclusão: Dezembro de 2020</p>
+                    <br>
+                    <p><strong>Certificação em Desenvolvimento Web Full Stack</strong></p>
+                    <p>Udemy, Online</p>
+                    <p>Conclusão: Junho de 2021</p>
+                </div>
+                
+                <div class="skill-card">
+                    <h3 class="skill-category">Certificados</h3>
+                    <p><strong>Certified Kubernetes Administrator (CKA)</strong></p>
+                    <p>Linux Foundation (2023)</p>
+                    <br>
+                    <p><strong>JavaScript Algorithms and Data Structures</strong></p>
+                    <p>FreeCodeCamp (2021)</p>
+                </div>
+                
+                <div class="skill-card">
+                    <h3 class="skill-category">Idiomas</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Português (Nativo)</span>
+                        <span class="skill-tag">Inglês (Intermediário)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Entre em Contato</h2>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">@</div>
+                        <div>
+                            <h3>Email</h3>
+                            <p>joao.silva@email.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">☏</div>
+                        <div>
+                            <h3>Telefone</h3>
+                            <p>(11) 98765-4321</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">in</div>
+                        <div>
+                            <h3>LinkedIn</h3>
+                            <p>linkedin.com/in/joaodasilva</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">⌘</div>
+                        <div>
+                            <h3>GitHub</h3>
+                            <p>github.com/joaodasilva</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">⌂</div>
+                        <div>
+                            <h3>Endereço</h3>
+                            <p>Rua Exemplo, 123, São Paulo - SP</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <form>
+                    <div class="form-group">
+                        <label class="form-label">Nome</label>
+                        <input type="text" class="form-input" placeholder="Seu nome">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-input" placeholder="Seu email">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Assunto</label>
+                        <input type="text" class="form-input" placeholder="Assunto da mensagem">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Mensagem</label>
+                        <textarea class="form-textarea" placeholder="Sua mensagem"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn">Enviar Mensagem</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 João da Silva. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
