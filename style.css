@@ -13,6 +13,227 @@
   --dark-gradient: linear-gradient(135deg, #121a29, #1e293b);
 }
 
+
+/* Animações */
+/* Animações e Transições */
+
+/* Keyframes para animações */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInFromLeft {
+  from { 
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  to { 
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromRight {
+  from { 
+    transform: translateX(50px);
+    opacity: 0;
+  }
+  to { 
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromBottom {
+  from { 
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to { 
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Aplicação das animações */
+
+/* Animação do logo */
+.logo {
+  transition: color 0.3s ease;
+}
+
+.logo:hover {
+  color: #00AFFF;
+  cursor: pointer;
+}
+
+/* Animação dos links de navegação */
+.nav-menu a {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-menu a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent-color);
+  transition: width 0.3s ease;
+}
+
+.nav-menu a:hover::after {
+  width: 100%;
+}
+
+/* Animação da seção hero */
+.hero h1 {
+  animation: fadeIn 1s ease-out;
+}
+
+.hero p {
+  animation: fadeIn 1.2s ease-out;
+}
+
+.hero .btn {
+  animation: fadeIn 1.5s ease-out;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.hero .btn:hover {
+  transform: scale(1.05);
+}
+
+/* Animação do card de upload */
+.upload-card {
+  transition: all 0.3s ease;
+}
+
+.upload-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 123, 255, 0.2);
+}
+
+.upload-card .upload-icon {
+  transition: transform 0.5s ease;
+}
+
+.upload-card:hover .upload-icon {
+  transform: scale(1.2);
+}
+
+/* Animação das etapas */
+.step {
+  transition: all 0.3s ease;
+}
+
+.step:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.step-icon {
+  transition: all 0.3s ease;
+}
+
+.step:hover .step-icon {
+  animation: bounce 1s infinite;
+}
+
+/* Animação dos cards de exemplo */
+.example-card {
+  transition: all 0.4s ease;
+  overflow: hidden;
+}
+
+.example-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.example-card img {
+  transition: transform 0.5s ease;
+}
+
+.example-card:hover img {
+  transform: scale(1.1);
+}
+
+/* Animação dos cards de benefícios */
+.benefit-card {
+  transition: all 0.3s ease;
+}
+
+.benefit-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.benefit-icon {
+  transition: transform 0.3s ease;
+}
+
+.benefit-card:hover .benefit-icon {
+  transform: rotate(10deg);
+}
+
+/* Animação dos itens de FAQ */
+.faq-item {
+  transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+  transform: translateX(5px);
+  border-left: 3px solid var(--accent-color);
+}
+
+/* Animação do formulário de contato */
+.contact form input,
+.contact form textarea {
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact form input:focus,
+.contact form textarea:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+}
+
+.contact .btn {
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.contact .btn:hover {
+  transform: scale(1.05);
+}
+
+/* Adicionando efeito de scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
 * {
   margin: 0;
   padding: 0;
@@ -1241,4 +1462,249 @@ footer p {
     width: 95%;
     height: 80%;
   }
+}
+
+
+
+
+
+/* Efeitos de Animação Variados */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+@keyframes flipIn {
+  from {
+    opacity: 0;
+    transform: perspective(400px) rotateY(90deg);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(400px) rotateY(0);
+  }
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(0, 123, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 123, 255, 0);
+  }
+}
+
+@keyframes drawBorder {
+  0% {
+    background-position: 0% 0%;
+    background-size: 0% 2px, 0% 2px, 2px 0%, 2px 0%;
+  }
+  25% {
+    background-position: 0% 0%;
+    background-size: 100% 2px, 0% 2px, 2px 0%, 2px 0%;
+  }
+  50% {
+    background-position: 100% 0%, 0% 100%;
+    background-size: 100% 2px, 0% 2px, 2px 100%, 2px 0%;
+  }
+  75% {
+    background-position: 100% 0%, 0% 100%, 100% 100%;
+    background-size: 100% 2px, 100% 2px, 2px 100%, 2px 0%;
+  }
+  100% {
+    background-position: 100% 0%, 0% 100%, 100% 100%, 0% 0%;
+    background-size: 100% 2px, 100% 2px, 2px 100%, 2px 100%;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes rotateFadeIn {
+  from {
+    opacity: 0;
+    transform: rotate(-10deg) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+  }
+}
+
+@keyframes expandWidth {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+/* Classes iniciais para os elementos não animados */
+.animate {
+  opacity: 0;
+}
+
+/* Classes para animações específicas */
+.fade-up.animated {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.slide-left.animated {
+  animation: slideInLeft 0.7s ease-out forwards;
+}
+
+.slide-right.animated {
+  animation: slideInRight 0.7s ease-out forwards;
+}
+
+.zoom.animated {
+  animation: zoomIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.bounce.animated {
+  animation: bounceIn 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) forwards;
+}
+
+.flip.animated {
+  animation: flipIn 0.8s ease-out forwards;
+}
+
+.pulse.animated {
+  animation: pulseGlow 1.5s infinite;
+  opacity: 1;
+}
+
+.border-draw.animated {
+  background-image: linear-gradient(to right, var(--accent-color) 100%, var(--accent-color) 100%), 
+                   linear-gradient(to bottom, var(--accent-color) 100%, var(--accent-color) 100%),
+                   linear-gradient(to right, var(--accent-color) 100%, var(--accent-color) 100%),
+                   linear-gradient(to bottom, var(--accent-color) 100%, var(--accent-color) 100%);
+  background-position: 0% 0%, 100% 0%, 100% 100%, 0% 100%;
+  background-repeat: no-repeat;
+  animation: drawBorder 1.2s linear forwards;
+  opacity: 1;
+}
+
+.floating.animated {
+  animation: float 3s ease-in-out infinite;
+  opacity: 1;
+}
+
+.rotate-in.animated {
+  animation: rotateFadeIn 0.7s ease-out forwards;
+}
+
+.expand-width.animated {
+  animation: expandWidth 0.8s ease-out forwards;
+}
+
+/* Delays para animações sequenciais */
+.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
+}
+
+.delay-400 {
+  animation-delay: 0.4s;
+}
+
+.delay-500 {
+  animation-delay: 0.5s;
+}
+
+/* Adicionar efeito de hover em elementos interativos */
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+/* Efeito especial para upload card */
+.upload-card.animated {
+  transition: all 0.3s ease;
+  background-size: 200% 200%;
+  background-image: linear-gradient(45deg, rgba(0,123,255,0.05) 25%, transparent 25%, 
+                    transparent 50%, rgba(0,123,255,0.05) 50%, rgba(0,123,255,0.05) 75%, 
+                    transparent 75%, transparent);
+  animation: pulse 2s infinite;
 }
