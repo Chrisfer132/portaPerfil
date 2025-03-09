@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PortaPerfil - Seu Site Pessoal Personalizado</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <meta name="description"
+    content="Transformamos seu currículo em um site pessoal exclusivo. Conte com nossa equipe de especialistas para criar um portfólio que impressiona.">
+</head>
+
+<body>
+  <header>
+    <div class="container header-container">
+      <div class="logo">PortaPerfil</div>
+      <nav class="nav-menu">
+        <a href="#home">Início</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#exemplos">Exemplos</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="container hero-container">
+      <h1>Seu Site Pessoal, Criado para Você</h1>
+      <p>Nossa equipe de especialistas transforma seu currículo em um site pessoal, que destaca sua trajetória única com
+        design exclusivo e resultados impactantes.</p>
+      <a href="#about" class="btn">Quero saber mais!</a>
+    </div>
+  </section>
+
+  <!-- Services / Upload Section -->
+  <section class="upload-section" id="servicos">
+    <div class="container">
+      <h2>Comece Agora - Envie Seu Currículo</h2>
+      <div class="upload-card" id="uploadCard">
+        <div class="upload-icon">📄</div>
+        <p>Arraste e solte seu currículo ou clique para selecionar</p>
+        <small>Formatos aceitos: PDF, DOCX, DOC</small>
+        <input type="file" id="fileInput" class="hidden-input" accept=".pdf,.docx,.doc">
+      </div>
+      <div class="form-group">
+        <input type="email" id="emailInput" placeholder="Digite seu E-mail  " required>
+      </div>
+      <button class="btn" id="uploadBtn">Enviar Currículo</button>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="steps" id="about">
+    <div class="container">
+      <h2>Como Funciona?</h2>
+      <div class="steps-grid">
+        <div class="step">
+          <div class="step-icon">1</div>
+          <h3>Envie Seu Currículo</h3>
+          <p>Utilizamos o seu currículo como referência para desenvolver a sua página pessoal.</p>
+        </div>
+        <div class="step">
+          <div class="step-icon">2</div>
+          <h3>Análise Personalizada</h3>
+          <p>Nossos especialistas analisam seu perfil e elaboram a estratégia mais adequada para garantir a sua plena satisfação.</p>
+        </div>
+        <div class="step">
+          <div class="step-icon">3</div>
+          <h3>Exclusividade</h3>
+          <p>Cada projeto é único; garantimos a exclusividade do seu site, desenvolvido especialmente para você.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about">
+    <div class="container">
+      <h2>Sobre a PortaPerfil</h2>
+      <p>Na PortaPerfil, combinamos criatividade e tecnologia para transformar seu currículo em um site pessoal que
+        realmente impressiona. Nossa equipe trabalha com foco em qualidade e personalização para destacar o melhor do
+        seu perfil profissional.</p>
+    </div>
+  </section>
+
+
+  <!-- Exemplos de Sites Criados -->
+  <section class="examples" id="exemplos">
+    <div class="container">
+      <h2>Exemplos de Sites Pessoais Criados</h2>
+      <div class="examples-grid">
+        <!-- Exemplo 1 -->
+        <div class="example-item" onclick="openModal('teste2.html')">
+          <div class="iframe-container">
+            <iframe src="teste2.html" frameborder="0"></iframe>
+          </div>
+          <p>Desenvolvedor Full-Stack</p>
+        </div>
+        <!-- Exemplo 2 -->
+        <div class="example-item" onclick="openModal('teste.html')">
+          <div class="iframe-container">
+            <iframe src="teste.html" frameborder="0"></iframe>
+          </div>
+          <p>Estagiária Bancaria</p>
+        </div>
+        <!-- Exemplo 3 -->
+        <div class="example-item" onclick="openModal('https://exemplo3.com')">
+          <div class="iframe-container">
+            <iframe src="https://exemplo3.com" frameborder="0"></iframe>
+          </div>
+          <p>Exemplo 3</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal para exibir o site completo -->
+  <div id="siteModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <iframe id="modalIframe" src="" frameborder="0"></iframe>
+    </div>
+  </div>
+
+
+  <!-- Sessão de Números Dinâmicos -->
+  <section class="dynamic-stats" id="dynamic-stats">
+    <div class="container">
+      <div class="stats-wrapper">
+        <div class="stat">
+          <span class="number" data-target="+129">0</span>
+          <p>Páginas Pessoais Desenvolvidas</p>
+        </div>
+        <div class="stat">
+          <span class="number" data-target="10">0</span>
+          <p>Anos de Experiência</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Benefits Section -->
+  <section class="benefits">
+    <div class="container">
+      <h2>Por Que Escolher a PortaPerfil?</h2>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">👥</div>
+          <h3>Especialistas Dedicados</h3>
+          <p>Profissionais com ampla experiência em desenvolvimento e design.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🎨</div>
+          <h3>Soluções Exclusivas</h3>
+          <p>Cada site é criado para refletir sua identidade e trajetória de forma única.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🚀</div>
+          <h3>Resultados Impactantes</h3>
+          <p>Design inovador e tecnologia de ponta para impulsionar sua carreira.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🤝</div>
+          <h3>Suporte Completo</h3>
+          <p>Acompanhamento do início ao fim, garantindo sua satisfação total.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Depoimentos Section Criativa -->
+  <section class="testimonials creative" id="depoimentos">
+    <div class="container">
+      <h2>Depoimentos</h2>
+      <div class="testimonials-wrapper">
+        <div class="testimonial">
+          <img src="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Foto de João Silva">
+          <div class="testimonial-content">
+            <p>"A PortaPerfil transformou meu currículo em um site incrível. Recomendo a todos!"</p>
+            <h3>João Silva</h3>
+            <span>Desenvolvedor</span>
+          </div>
+        </div>
+        <div class="testimonial">
+          <img src="https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Foto de Maria Oliveira">
+          <div class="testimonial-content">
+            <p>"A equipe de especialistas realmente entendeu minhas necessidades. Meu site ficou impecável!"</p>
+            <h3>Maria Oliveira</h3>
+            <span>Designer Gráfico</span>
+          </div>
+        </div>
+        <div class="testimonial">
+          <img src="https://images.pexels.com/photos/5617644/pexels-photo-5617644.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Foto de Carlos Souza">
+          <div class="testimonial-content">
+            <p>"Profissionalismo e qualidade em cada detalhe. Excelente trabalho!"</p>
+            <h3>Carlos Souza</h3>
+            <span>Especialista em Marketing</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FAQ Section -->
+  <section class="faq">
+    <div class="container">
+      <h2>Perguntas Frequentes</h2>
+      <div class="faq-item">
+        <h3>Como funciona o processo?</h3>
+        <p>Você envia seu currículo, nossos especialistas analisam seu perfil e definem a melhor estratégia para criar
+          um site que destaque suas qualidades.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Quais formatos de currículo são aceitos?</h3>
+        <p>Aceitamos arquivos em PDF, DOCX e DOC para melhor compreensão do seu histórico profissional.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Posso solicitar ajustes no design?</h3>
+        <p>Sim, trabalhamos em conjunto para personalizar o layout e garantir que o site reflita sua identidade.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Como é realizado o suporte?</h3>
+        <p>Oferecemos suporte completo via e-mail e chat, acompanhando você desde o envio do currículo até a finalização
+          do site.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact" id="contato">
+    <div class="container">
+      <h2>Entre em Contato</h2>
+      <p>Tem alguma dúvida ou quer saber mais? Fale conosco e descubra como podemos transformar seu currículo em um site
+        de sucesso!</p>
+      <form id="contactForm">
+        <div class="form-row">
+          <input type="text" id="name" placeholder="Seu Nome" required>
+        </div>
+        <div class="form-row">
+          <input type="email" id="contactEmail" placeholder="Seu E-mail" required>
+        </div>
+        <div class="form-row">
+          <textarea id="message" placeholder="Sua Mensagem" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn">Enviar Mensagem</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 PortaPerfil. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Interação com o card de upload
+    const uploadCard = document.getElementById('uploadCard');
+    const fileInput = document.getElementById('fileInput');
+    const uploadBtn = document.getElementById('uploadBtn');
+    const emailInput = document.getElementById('emailInput');
+    let fileName = '';
+
+    // Animação para o card de upload
+    uploadCard.addEventListener('click', () => {
+      fileInput.click();
+    });
+
+    uploadCard.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      uploadCard.classList.add('dragover');
+    });
+
+    uploadCard.addEventListener('dragleave', () => {
+      uploadCard.classList.remove('dragover');
+    });
+
+    uploadCard.addEventListener('drop', (e) => {
+      e.preventDefault();
+      uploadCard.classList.remove('dragover');
+
+      if (e.dataTransfer.files.length) {
+        handleFile(e.dataTransfer.files[0]);
+      }
+    });
+
+    // Lidar com a mudança de arquivo selecionado
+    fileInput.addEventListener('change', (e) => {
+      if (e.target.files.length) {
+        handleFile(e.target.files[0]);
+      }
+    });
+
+    // Função para processar o arquivo selecionado
+    function handleFile(file) {
+      fileName = file.name;
+      const fileSize = formatFileSize(file.size);
+      const fileType = file.type.split('/')[1].toUpperCase();
+
+      // Atualizar o conteúdo do card de upload
+      uploadCard.innerHTML = `
+    <div class="upload-icon">📄</div>
+    <div class="file-details">
+      <p class="file-name">${fileName}</p>
+      <p class="file-info">${fileType} • ${fileSize}</p>
+    </div>
+    <div class="file-status">Arquivo selecionado</div>
+  `;
+
+      // Adicionar uma classe para indicar que um arquivo foi selecionado
+      uploadCard.classList.add('file-selected');
+    }
+
+    // Formatar o tamanho do arquivo
+    function formatFileSize(bytes) {
+      if (bytes < 1024) return bytes + ' bytes';
+      else if (bytes < 1048576) return (bytes / 1024).toFixed(1) + ' KB';
+      else return (bytes / 1048576).toFixed(1) + ' MB';
+
+    }
+
+    // Validação do email
+    emailInput.addEventListener('blur', validateEmail);
+
+    function validateEmail() {
+      const email = emailInput.value.trim();
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (email === '') {
+        setEmailError('Por favor, informe seu e-mail.');
+        return false;
+      } else if (!emailRegex.test(email)) {
+        setEmailError('Por favor, informe um e-mail válido.');
+        return false;
+      } else {
+        clearEmailError();
+        return true;
+      }
+    }
+
+    function setEmailError(message) {
+      // Remover mensagem de erro anterior, se existir
+      clearEmailError();
+
+      // Criar elemento de mensagem de erro
+      const errorElement = document.createElement('div');
+      errorElement.className = 'error-message';
+      errorElement.textContent = message;
+
+      // Adicionar classe de erro ao input
+      emailInput.classList.add('input-error');
+
+      // Adicionar mensagem de erro após o input
+      emailInput.parentNode.appendChild(errorElement);
+    }
+
+    function clearEmailError() {
+      // Remover classe de erro do input
+      emailInput.classList.remove('input-error');
+
+      // Remover mensagem de erro, se existir
+      const errorElement = emailInput.parentNode.querySelector('.error-message');
+      if (errorElement) {
+        errorElement.remove();
+      }
+    }
+
+    // Envio do currículo e redirecionamento
+    uploadBtn.addEventListener('click', () => {
+      if (!fileInput.files.length) {
+        alert('Por favor, selecione um arquivo de currículo.');
+        return;
+      }
+
+      if (!validateEmail()) {
+        return;
+      }
+
+      // Mostrar feedback visual de envio
+      uploadBtn.innerHTML = '<span class="spinner"></span> Processando...';
+      uploadBtn.disabled = true;
+
+      // Simular envio (em produção, substituir por envio real)
+      setTimeout(() => {
+        localStorage.setItem("userEmail", emailInput.value);
+        localStorage.setItem("fileName", fileName);
+        window.location.href = "choose.html";
+      }, 1500);
+    });
+
+    // Funcionalidade melhorada para o modal
+    function openModal(url) {
+      const modal = document.getElementById("siteModal");
+      const iframe = document.getElementById("modalIframe");
+
+      // Definir src do iframe
+      iframe.src = url;
+
+      // Exibir o modal com animação
+      modal.style.display = "flex";
+      modal.classList.add('active');
+
+      // Desabilitar o scroll do body
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      const modal = document.getElementById("siteModal");
+      const iframe = document.getElementById("modalIframe");
+
+      // Esconder o modal com animação
+      modal.classList.remove('active');
+
+      setTimeout(() => {
+        modal.style.display = "none";
+        iframe.src = "";
+
+        // Habilitar o scroll do body
+        document.body.style.overflow = 'auto';
+      }, 300);
+    }
+
+    // Fecha o modal se o usuário clicar fora da área de conteúdo
+    window.onclick = function (event) {
+      const modal = document.getElementById("siteModal");
+      if (event.target == modal) {
+        closeModal();
+      }
+    }
+
+    // Animação de elementos ao fazer scroll
+    document.addEventListener('DOMContentLoaded', function () {
+      const animatedElements = document.querySelectorAll('.step, .benefit-card, .faq-item, .example-item');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.2
+      });
+
+      animatedElements.forEach(element => {
+        element.classList.add('pre-animation');
+        observer.observe(element);
+      });
+    });
+
+    // Validação do formulário de contato
+    const contactForm = document.getElementById('contactForm');
+    const nameInput = document.getElementById('name');
+    const contactEmail = document.getElementById('contactEmail');
+    const messageInput = document.getElementById('message');
+
+    if (contactForm) {
+      contactForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        // Validar campos
+        let isValid = true;
+
+        if (nameInput.value.trim() === '') {
+          setInputError(nameInput, 'Por favor, informe seu nome.');
+          isValid = false;
+        } else {
+          clearInputError(nameInput);
+        }
+
+        if (contactEmail.value.trim() === '') {
+          setInputError(contactEmail, 'Por favor, informe seu e-mail.');
+          isValid = false;
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contactEmail.value.trim())) {
+          setInputError(contactEmail, 'Por favor, informe um e-mail válido.');
+          isValid = false;
+        } else {
+          clearInputError(contactEmail);
+        }
+
+        if (messageInput.value.trim() === '') {
+          setInputError(messageInput, 'Por favor, digite sua mensagem.');
+          isValid = false;
+        } else {
+          clearInputError(messageInput);
+        }
+
+        if (isValid) {
+          // Mostrar feedback visual de envio
+          const submitBtn = contactForm.querySelector('button[type="submit"]');
+          submitBtn.innerHTML = '<span class="spinner"></span> Enviando...';
+          submitBtn.disabled = true;
+
+          // Simular envio (em produção, substituir por envio real)
+          setTimeout(() => {
+            // Exibir mensagem de sucesso
+            contactForm.innerHTML = `
+          <div class="success-message">
+            <div class="success-icon">✓</div>
+            <h3>Mensagem Enviada!</h3>
+            <p>Agradecemos seu contato. Responderemos em breve.</p>
+          </div>
+        `;
+          }, 1500);
+        }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Função que anima a contagem de um número
+      const animateCount = (counter) => {
+        const target = +counter.getAttribute('data-target');
+        let current = 0;
+        const increment = target / 200; // Ajuste para definir a velocidade da contagem
+
+        const updateCounter = () => {
+          current += increment;
+          if (current < target) {
+            counter.innerText = Math.floor(current);
+            requestAnimationFrame(updateCounter);
+          } else {
+            counter.innerText = target;
+          }
+        };
+        updateCounter();
+      };
+
+      // Usando Intersection Observer para iniciar a animação somente quando o item estiver visível
+      const options = { threshold: 0.5 };
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const counter = entry.target.querySelector('.number');
+            animateCount(counter);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, options);
+
+      // Observa cada elemento .stat individualmente
+      const statElements = document.querySelectorAll('.dynamic-stats .stat');
+      statElements.forEach(stat => {
+        observer.observe(stat);
+      });
+    });
+
+  </script>
+  <script src="animation.js"></script>
+</body>
+</html>

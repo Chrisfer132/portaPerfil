@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Escolha seu Plano - CurriculoWeb</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Escolha o plano de entrega do seu site.">
+  <style>
+    /* Estilização exclusiva para a página de escolha */
+    .choose-plan {
+      background-color: #007bff;
+      color: #fff;
+      padding: 6rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .choose-plan::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url('https://via.placeholder.com/1200x600?text=Tech+Background') no-repeat center center/cover;
+      opacity: 0.1;
+      z-index: 0;
+    }
+    .choose-plan .container {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+    .choose-plan h2 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    .choose-plan p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    .plan-options {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .plan-card {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 15px;
+      padding: 2rem;
+      width: 280px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+    .plan-card:hover {
+      transform: translateY(-10px);
+      background: rgba(255, 255, 255, 0.2);
+    }
+    .plan-card h3 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+    }
+    .plan-card p {
+      margin-bottom: 1rem;
+    }
+    .plan-price {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #ffdd00;
+      margin-bottom: 1rem;
+    }
+    #selectedPlanMessage {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 1.5rem;
+      border-radius: 10px;
+      display: inline-block;
+      margin-top: 2rem;
+    }
+    #selectedPlanMessage p {
+      font-size: 1.2rem;
+    }
+    #selectedPlanMessage button {
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container header-container">
+      <div class="logo">CurriculoWeb</div>
+      <nav class="nav-menu">
+        <a href="index.html">Início</a>
+        <a href="#planos">Planos</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="choose-plan" id="planos">
+    <div class="container">
+      <h2>Escolha seu Plano</h2>
+      <p>Selecione a opção que melhor atende às suas necessidades e inicie sua transformação digital.</p>
+      <div class="plan-options">
+        <div class="plan-card" id="normalPlan">
+          <h3>Normal</h3>
+          <p>Entrega em até 24 horas</p>
+          <p class="plan-price">R$29,90</p>
+          <button class="btn select-plan" data-plan="normal" data-price="29.90">Selecionar</button>
+        </div>
+        <div class="plan-card" id="expressPlan">
+          <h3>Express</h3>
+          <p>Entrega em até 2 horas</p>
+          <p class="plan-price">R$49,90</p>
+          <button class="btn select-plan" data-plan="express" data-price="49.90">Selecionar</button>
+        </div>
+      </div>
+      <div id="selectedPlanMessage" style="display:none;">
+        <p>Você selecionou o plano <span id="selectedPlanName"></span>.</p>
+        <button class="btn" id="confirmPlan">Confirmar e prosseguir</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 CurriculoWeb. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+</body>
+<script src="https://js.stripe.com/v3/"></script>
+<script src="app.js"></script>
+
+</html>
